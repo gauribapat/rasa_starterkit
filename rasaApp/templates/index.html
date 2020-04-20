@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Conversational AI</title>
+</head>
+<body>
+
+Welcome to your Rasa Conversational Agent!
+<br>
+
+<input type="text" style="height:50px;width:200px;font-size:10pt;" id="input_text">
+
+<button type="button" onclick="sendChat()">Chat!</button>
+
+<br>
+AI says: <p id="response"></p>
+
+
+<script type="text/javascript">
+	function sendChat() {
+		var chat = document.getElementById("input_text").value;
+
+		// logic here to connect to flask
+
+		// POST
+		fetch('/', {
+		    // Specify the method
+		    method: 'POST',
+		    headers: {'Content-Type': 'application/json', },
+		    body: JSON.stringify({
+		        "text": chat
+		    })
+		}).then(function (response) {
+		    return response.text();
+		}).then(function (text) {
+		    console.log('POST response: ');
+		    console.log(text);
+		    document.getElementById("response").innerHTML = text;
+		});
+
+		// clear text box
+		document.getElementById("input_text").value = "";
+	}
+
+</script>
+
+</body>
+</html>
