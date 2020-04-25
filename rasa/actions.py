@@ -139,6 +139,8 @@ class RestaurantForm(FormAction):
         """Define what the form has to do
             after all required slots are filled"""
 
-        # utter submit template
-        dispatcher.utter_message(template="utter_submit")
+        # TODO: custom business logic code to run after all the slots are filled
+
+        # for the purposes of the demo, the bot will just suggest Olive Garden for all inputs
+        dispatcher.utter_message(template="utter_suggest_restaurant")
         return []

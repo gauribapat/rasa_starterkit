@@ -20,8 +20,8 @@ def show_index():
         chat = requests.post("http://localhost:5005/webhooks/rest/webhook", data=obj)
         rasa_resp = chat.json()
         rasa_resp = rasa_resp[0]["text"] 
+        
         print(rasa_resp)
-        context = {'message': "test2"}
         return rasa_resp, 200
 
     return flask.render_template("index.html")

@@ -64,8 +64,6 @@ responses:
     - text: "do you want to continue?"
   utter_wrong_cuisine:
     - text: "cuisine type is not in the database, please try again"
-  utter_wrong_num_people:
-    - text: "number of people should be a positive integer, please try again"
   utter_wrong_outdoor_seating:
     - text: "could not convert input to boolean value, please try again"
   utter_default:
@@ -78,6 +76,12 @@ responses:
     - text: "restarted"
   utter_goodbye:
     - text: "bye bye"
+  utter_suggest_restaurant:
+    - text: "I recommend Olive Garden!"
+  utter_ask_satisfied:
+    - text: "are you happy with this recommendation?"
+  utter_apologize:
+    - text: "I'm sorry, have a nice day!"
 
 forms:
   - restaurant_form
