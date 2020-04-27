@@ -21,7 +21,6 @@ AI says: <p id="response"></p>
 		var chat = document.getElementById("input_text").value;
 
 		// logic here to connect to flask
-
 		// POST
 		fetch('/', {
 		    // Specify the method
@@ -35,6 +34,8 @@ AI says: <p id="response"></p>
 		}).then(function (text) {
 		    console.log('POST response: ');
 		    console.log(text);
+
+		    // update DOM with rasa's response
 		    document.getElementById("response").innerHTML = text;
 		});
 

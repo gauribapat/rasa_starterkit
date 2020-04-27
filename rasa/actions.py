@@ -1,3 +1,4 @@
+# from https://github.com/RasaHQ/rasa/tree/master/examples/formbot
 from typing import Dict, Text, Any, List, Union, Optional
 
 from rasa_sdk import Tracker
@@ -139,8 +140,7 @@ class RestaurantForm(FormAction):
         """Define what the form has to do
             after all required slots are filled"""
 
-        # TODO: custom business logic code to run after all the slots are filled
-
+        # TODO: custom business logic code to run after all the slots are filled, like an API call
         # for the purposes of the demo, the bot will just suggest Olive Garden for all inputs
         dispatcher.utter_message(template="utter_suggest_restaurant")
         return []

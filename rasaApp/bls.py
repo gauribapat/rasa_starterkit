@@ -10,17 +10,19 @@ def show_index():
     """Show the index page."""
     
     if flask.request.method == 'POST':
-        print("INCOMING")
+        # user's chat
         incoming = request.get_json()
         chat = incoming["text"]
 
-        # ok now connect this to rasa
+        # send their message to rasa
         obj = {"sender": "Rasa", "message": chat}
         obj = json.dumps(obj)
         chat = requests.post("http://localhost:5005/webhooks/rest/webhook", data=obj)
+        
+        # decode the response
         rasa_resp = chat.json()
         rasa_resp = rasa_resp[0]["text"] 
-        
+
         print(rasa_resp)
         return rasa_resp, 200
 
